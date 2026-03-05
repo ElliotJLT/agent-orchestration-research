@@ -119,6 +119,100 @@ Since you can't read every line of vibe-coded output:
 - **Serial bottlenecks are normal** — it's OK to run 1-2 workers while others pause
 - **Regular cleanups** — stale branches, orphaned files, dead state. Automate the recurring ones.
 
+## Orchestrator Taxonomy
+
+Four orthogonal problems in multi-agent coding:
+
+| Problem | Focus | Example |
+|---------|-------|---------|
+| **Quality** | Self-review loops until convergence | Ralph Wiggum loops |
+| **Quantity** | Swarm ephemeral workers at well-defined tasks | Gas Town polecats |
+| **Coordination** | Multi-agent collaboration on complex tasks | Loom, Claude Flow |
+| **Work definition** | Durable audit trail of what needs doing | MEOW/Beads |
+
+Key insight: these are complementary, not competing. The ideal system combines durable workflows (patrols) that invoke quality-convergence loops (Ralph) at each step, with coordination layers for complex multi-agent steps.
+
+### Task sizing for ephemeral workers
+- Ephemeral agents choke on tasks that are too big
+- Context compaction = failure scenario
+- Break work down small enough that an agent can finish in one session
+- Same old agile decomposition principle, new context window constraint
+
+### Roles as config, not code (Gas City concept)
+- Once the workflow stack is powerful enough, roles themselves can be expressed as DSL/config
+- Build-your-own-orchestrator-shape rather than hardcoded roles
+- Allows custom business processes, team structures, coordination rules
+
+## Cognitive Load at Scale
+
+Working at high decision-throughput with many agents exhausts internal buffers. "Bezos Mode" — when easy work is handled automatically, everything you personally process is architecturally complex and nuanced. Multiple practitioners independently report needing deep recovery naps during sustained multi-agent sessions. The hypothesis: sustained high-bandwidth decision-making depletes cognitive resources faster than normal coding.
+
+## Software Survival Framework (Selection Model)
+
+Framework for predicting which software survives in a world where AI writes all code.
+
+### Core thesis
+Inference costs tokens, which cost energy, which cost money. Resource constraints create selection pressure: **software survives if it saves cognition**.
+
+### The Survival Ratio
+
+```
+Survival(T) ∝ (Savings × Usage × H) / (Awareness_cost + Friction_cost)
+```
+
+- **Savings**: tokens saved vs synthesizing equivalent functionality from scratch
+- **Usage**: how broadly the tool applies across different situations
+- **H**: human coefficient — demand for human-created/curated material
+- **Awareness_cost**: energy for agents to know the tool exists and choose it
+- **Friction_cost**: energy lost to errors, retries, misunderstandings when using it
+
+Ratio > 1 = positive selection pressure (tool survives). Below 1 = selected against.
+
+### Six Survival Levers
+
+**Lever 1: Insight Compression**
+- Compress hard-won knowledge into reusable form
+- Examples: Git (decades of VCS wisdom), Kubernetes (distributed systems complexity), Temporal (durable execution)
+- Would be absurdly expensive to re-synthesize from first principles
+- The older and more battle-tested, the higher the insight density
+
+**Lever 2: Substrate Efficiency**
+- Delegate computation to cheaper substrates (CPU vs GPU inference)
+- "Nobody is coming for grep" — pattern matching over text on CPU beats GPU by orders of magnitude
+- Also: calculators, parsers, ImageMagick, Unix CLI tools
+- Save tokens by doing computations more cleverly or on cheaper hardware
+
+**Lever 3: Broad Utility**
+- Amortizes awareness cost, lowers threshold for token savings
+- General-purpose tools become the "obvious" default choice
+- Creates virtuous cycle: more usage → more training data → more awareness
+- Examples: Postgres (stores most datasets), Temporal (models most workflows)
+
+**Lever 4: Publicity / Awareness**
+- Agents have to know about you — the "pre-sales" problem
+- Options: build popularity and wait for training data, pay for model training partnerships, SEO for agents
+- Some frontier labs offer paid services to train models on specific tools (evals-based)
+- If you can't afford deep pockets, rely heavily on Lever 5
+
+**Lever 5: Minimizing Friction (Agent UX)**
+- The "post-sales" problem — agents give up fast on tools that fight them
+- **Desire paths approach**: implement whatever agents try to do with your tool until nearly every guess is correct
+- Agents prefer tools that work the way they already think about problems
+- Documentation is a fallback; intuitive design is the goal
+- "Hallucination squatting" as extreme example of understanding agent UX
+
+**Lever 6: The Human Coefficient**
+- Some software thrives because humans were involved, not despite it
+- Human curation, social proof, creativity, physical presence, approval
+- Can be absurdly inefficient because value derives from "human stink"
+- Examples: human-curated playlists, games with real humans, agent-free social networks
+
+### Survival Heuristics
+- Software that intermediates between humans and AIs is in trouble
+- Software trying to do "smart things" AIs will soon do natively is in trouble
+- Software that would be "crazy to re-synthesize" has strong survival odds
+- Demand for new software is effectively infinite — ambition always outstrips available cognition
+
 ## Evolution Scale (self-assessment)
 
 1. Zero/near-zero AI (maybe completions)
